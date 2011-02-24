@@ -23,6 +23,7 @@
 "       line in your .vimrc :
 "        let g:no_haskell_conceal = 1
 "  Changelog:
+"   - 1.2: Fixing conceal level to be local (thx Erlend Hamberg)
 "   - 1.1: Better handling of non utf-8 systems, and avoid some
 "           concealing operations on windows on some fonts
 "
@@ -78,5 +79,5 @@ endif
 
 hi link hsNiceOperator Operator
 hi! link Conceal Operator
-set conceallevel=2
+setlocal conceallevel=2
 
