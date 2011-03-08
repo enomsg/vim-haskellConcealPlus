@@ -2,8 +2,8 @@
 " What Is This: Add some conceal operator for your haskell files
 " File:         haskell.vim (conceal enhancement)
 " Author:       Vincent Berthoux <twinside@gmail.com>
-" Last Change:  2010 oct. 16
-" Version:      1.1
+" Last Change:  2011 mar 08
+" Version:      1.3
 " Require:
 "   set nocompatible
 "     somewhere on your .vimrc
@@ -23,6 +23,7 @@
 "       line in your .vimrc :
 "        let g:no_haskell_conceal = 1
 "  Changelog:
+"   - 1.3: adding new arrow characters used by GHC in Unicode extension.
 "   - 1.2: Fixing conceal level to be local (thx Erlend Hamberg)
 "   - 1.1: Better handling of non utf-8 systems, and avoid some
 "           concealing operations on windows on some fonts
@@ -69,7 +70,13 @@ if s:extraConceal
     syntax match hsNiceOperator "\:\:" conceal cchar=∷
     syntax match hsniceoperator "++" conceal cchar=⧺
     syntax match hsNiceOperator "\<forall\>" conceal cchar=∀
-        
+    syntax match hsNiceOperator "-<" conceal cchar=↢
+    syntax match hsNiceOperator ">-" conceal cchar=↣
+    syntax match hsNiceOperator "-<<" conceal cchar=⤛
+    syntax match hsNiceOperator ">>-" conceal cchar=⤜
+    " the star does not seem so good...
+    " syntax match hsNiceOperator "*" conceal cchar=★
+
     " Only replace the dot, avoid taking spaces around.
     syntax match hsNiceOperator /\s\.\s/ms=s+1,me=e-1 conceal cchar=∘
     syntax match hsNiceOperator "\.\." conceal cchar=‥
