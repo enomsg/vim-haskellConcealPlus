@@ -2,8 +2,8 @@
 " What Is This: Add some conceal operator for your haskell files
 " File:         haskell.vim (conceal enhancement)
 " Author:       Vincent Berthoux <twinside@gmail.com>
-" Last Change:  2011 mar 08
-" Version:      1.3
+" Last Change:  
+" Version:      1.3.1
 " Require:
 "   set nocompatible
 "     somewhere on your .vimrc
@@ -23,6 +23,7 @@
 "       line in your .vimrc :
 "        let g:no_haskell_conceal = 1
 "  Changelog:
+"   - 1.3.1: putting undefined in extra conceal, not appearing on windows
 "   - 1.3: adding new arrow characters used by GHC in Unicode extension.
 "   - 1.2: Fixing conceal level to be local (thx Erlend Hamberg)
 "   - 1.1: Better handling of non utf-8 systems, and avoid some
@@ -40,13 +41,9 @@ syntax match hsNiceOperator "\<sum\>" conceal cchar=∑
 syntax match hsNiceOperator "\<product\>" conceal cchar=∏ 
 syntax match hsNiceOperator "\<sqrt\>" conceal cchar=√ 
 syntax match hsNiceOperator "\<pi\>" conceal cchar=π
-syntax match hsNiceOperator "\<undefined\>" conceal cchar=⟘
 syntax match hsNiceOperator "==" conceal cchar=≡
 syntax match hsNiceOperator "\/=" conceal cchar=≠
 syntax match hsNiceOperator ">>" conceal cchar=»
-
-sy match hsQQEnd "|\]" contained conceal cchar=〛
-" sy match hsQQEnd "|\]" contained conceal=〚
 
 let s:extraConceal = 1
 " Some windows font don't support some of the characters,
@@ -66,6 +63,7 @@ if has("win32")
 endif
 
 if s:extraConceal
+    syntax match hsNiceOperator "\<undefined\>" conceal cchar=⟘
     syntax match hsNiceOperator "<=" conceal cchar=≲
     syntax match hsNiceOperator ">=" conceal cchar=≳
     syntax match hsNiceOperator "=>" conceal cchar=⇒
@@ -86,9 +84,10 @@ if s:extraConceal
     " Only replace the dot, avoid taking spaces around.
     syntax match hsNiceOperator /\s\.\s/ms=s+1,me=e-1 conceal cchar=∘
     syntax match hsNiceOperator "\.\." conceal cchar=‥
+
+    syntax match hsQQEnd "|\]" contained conceal cchar=〛
+    " sy match hsQQEnd "|\]" contained conceal=〚
 endif
-
-
 
 hi link hsNiceOperator Operator
 hi! link Conceal Operator
