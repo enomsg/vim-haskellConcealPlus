@@ -64,7 +64,7 @@ if has("win32")
 endif
 
 if s:extraConceal
-    syntax match hsNiceOperator "\<undefined\>" conceal cchar=⟘
+    syntax match hsNiceOperator "\<undefined\>" conceal cchar=⊥
     syntax match hsNiceOperator "<=" conceal cchar=≲
     syntax match hsNiceOperator ">=" conceal cchar=≳
     syntax match hsNiceOperator "=>" conceal cchar=⇒
