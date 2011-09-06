@@ -68,6 +68,7 @@ if s:extraConceal
     syntax match hsNiceOperator "<=" conceal cchar=≲
     syntax match hsNiceOperator ">=" conceal cchar=≳
     syntax match hsNiceOperator "=>" conceal cchar=⇒
+    syntax match hsNiceOperator "=\zs<<" conceal cchar=«
 
     " Redfining to get proper '::' concealing
     syntax match hs_DeclareFunction /^[a-z_(]\S*\(\s\|\n\)*::/me=e-2 nextgroup=hsNiceOperator contains=hs_FunctionName,hs_OpFunctionName
