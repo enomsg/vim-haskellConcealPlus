@@ -8,7 +8,8 @@
 "   set nocompatible
 "     somewhere on your .vimrc
 "
-"   Vim 7.3 or Vim compiled with conceal patch
+"   Vim 7.3 or Vim compiled with conceal patch.
+"   Use --with-features=big or huge in order to compile it in.
 "
 " Usage:
 "   Drop this file in your
