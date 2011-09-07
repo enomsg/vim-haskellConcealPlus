@@ -65,8 +65,11 @@ endif
 
 if s:extraConceal
     syntax match hsNiceOperator "\<undefined\>" conceal cchar=⊥
-    syntax match hsNiceOperator "<=" conceal cchar=≲
-    syntax match hsNiceOperator ">=" conceal cchar=≳
+
+    " Match greater than and lower than w/o messing with Kleisli composition
+    syntax match hsNiceOperator "<=\ze[^<]" conceal cchar=≲
+    syntax match hsNiceOperator ">=\ze[^>]" conceal cchar=≳
+
     syntax match hsNiceOperator "=>" conceal cchar=⇒
     syntax match hsNiceOperator "=\zs<<" conceal cchar=«
 
