@@ -2,8 +2,8 @@
 " What Is This: Add some conceal operator for your haskell files
 " File:         haskell.vim (conceal enhancement)
 " Author:       Vincent Berthoux <twinside@gmail.com>
-" Last Change:  
-" Version:      1.3.1
+" Last Change:  2011-09-07
+" Version:      1.3.2
 " Require:
 "   set nocompatible
 "     somewhere on your .vimrc
