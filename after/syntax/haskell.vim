@@ -35,7 +35,7 @@ if exists('g:no_haskell_conceal') || !has('conceal') || &enc != 'utf-8'
 endif
 
 " vim: set fenc=utf-8:
-syntax match hsNiceOperator "\\\@<!\\\\\@!=" conceal cchar=λ
+syntax match hsNiceOperator "\\\ze[[:alpha:][:space:]_([]" conceal cchar=λ
 syntax match hsNiceOperator "<-" conceal cchar=←
 syntax match hsNiceOperator "->" conceal cchar=→
 syntax match hsNiceOperator "\<sum\>" conceal cchar=∑
