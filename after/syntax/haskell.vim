@@ -2,13 +2,14 @@
 " What Is This: Add some conceal operator for your haskell files
 " File:         haskell.vim (conceal enhancement)
 " Author:       Vincent Berthoux <twinside@gmail.com>
-" Last Change:  
-" Version:      1.3.1
+" Last Change:  2011-09-07
+" Version:      1.3.2
 " Require:
 "   set nocompatible
 "     somewhere on your .vimrc
 "
-"   Vim 7.3 or Vim compiled with conceal patch
+"   Vim 7.3 or Vim compiled with conceal patch.
+"   Use --with-features=big or huge in order to compile it in.
 "
 " Usage:
 "   Drop this file in your
@@ -34,7 +35,7 @@ if exists('g:no_haskell_conceal') || !has('conceal') || &enc != 'utf-8'
 endif
 
 " vim: set fenc=utf-8:
-syntax match hsNiceOperator "\\\@<!\\\\\@!=" conceal cchar=λ
+syntax match hsNiceOperator "\\\ze[[:alpha:][:space:]_([]" conceal cchar=λ
 syntax match hsNiceOperator "<-" conceal cchar=←
 syntax match hsNiceOperator "->" conceal cchar=→
 syntax match hsNiceOperator "\<sum\>" conceal cchar=∑
@@ -63,10 +64,14 @@ if has("win32")
 endif
 
 if s:extraConceal
-    syntax match hsNiceOperator "\<undefined\>" conceal cchar=⟘
-    syntax match hsNiceOperator "<=" conceal cchar=≲
-    syntax match hsNiceOperator ">=" conceal cchar=≳
+    syntax match hsNiceOperator "\<undefined\>" conceal cchar=⊥
+
+    " Match greater than and lower than w/o messing with Kleisli composition
+    syntax match hsNiceOperator "<=\ze[^<]" conceal cchar=≲
+    syntax match hsNiceOperator ">=\ze[^>]" conceal cchar=≳
+
     syntax match hsNiceOperator "=>" conceal cchar=⇒
+    syntax match hsNiceOperator "=\zs<<" conceal cchar=«
 
     " Redfining to get proper '::' concealing
     syntax match hs_DeclareFunction /^[a-z_(]\S*\(\s\|\n\)*::/me=e-2 nextgroup=hsNiceOperator contains=hs_FunctionName,hs_OpFunctionName
