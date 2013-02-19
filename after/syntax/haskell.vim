@@ -67,8 +67,8 @@ if s:extraConceal
     syntax match hsNiceOperator "\<undefined\>" conceal cchar=⊥
 
     " Match greater than and lower than w/o messing with Kleisli composition
-    syntax match hsNiceOperator "<=\ze[^<]" conceal cchar=≲
-    syntax match hsNiceOperator ">=\ze[^>]" conceal cchar=≳
+    syntax match hsNiceOperator "<=\ze[^<]" conceal cchar=≤
+    syntax match hsNiceOperator ">=\ze[^>]" conceal cchar=≥
 
     syntax match hsNiceOperator "=>" conceal cchar=⇒
     syntax match hsNiceOperator "=\zs<<" conceal cchar=«
@@ -92,6 +92,9 @@ if s:extraConceal
 
     syntax match hsQQEnd "|\]" contained conceal cchar=〛
     " sy match hsQQEnd "|\]" contained conceal=〚
+
+    syntax match hsNiceOperator "`elem`" conceal cchar=∈
+    syntax match hsNiceOperator "`notElem`" conceal cchar=∉
 endif
 
 hi link hsNiceOperator Operator
