@@ -77,7 +77,7 @@ if s:extraConceal
     syntax match hs_DeclareFunction /^[a-z_(]\S*\(\s\|\n\)*::/me=e-2 nextgroup=hsNiceOperator contains=hs_FunctionName,hs_OpFunctionName
     syntax match hsNiceOperator "\:\:" conceal cchar=∷
 
-    syntax match hsniceoperator "++" conceal cchar=⧺
+    syntax match hsNiceoperator "++" conceal cchar=⧺
     syntax match hsNiceOperator "\<forall\>" conceal cchar=∀
     syntax match hsNiceOperator "-<" conceal cchar=↢
     syntax match hsNiceOperator ">-" conceal cchar=↣
