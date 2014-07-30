@@ -73,7 +73,6 @@ if s:extraConceal
     syntax match hsNiceOperator ">=\ze[^>]" conceal cchar=≥
 
     syntax match hsNiceOperator "=>" conceal cchar=⇒
-    syntax match hsNiceOperator "=\zs<<" conceal cchar=«
 
     " Redfining to get proper '::' concealing
     syntax match hs_DeclareFunction /^[a-z_(]\S*\(\s\|\n\)*::/me=e-2 nextgroup=hsNiceOperator contains=hs_FunctionName,hs_OpFunctionName
@@ -126,10 +125,19 @@ setlocal conceallevel=2
 
 " Informal but still useful notation down below.
 if !exists('g:informal_haskell_conceal')
+	syntax match hsNiceOperator "=\zs<<" conceal cchar=«
 	finish
 endif
 
+" Vim has some issues concealing with composite symbols like '«̳', and
+" unfortunately there is no other common short notation for bind. But for
+" readability we still want a single-space character. For the time being,
+" these circled letters/mnemonics might work:
+" b - normal bind, to the right (b "looks" to the right)
+" d - bind to the left (mirrored b, "looks" to the left)
 " m - map
+syntax match hsNiceOperator ">>="        conceal cchar=ⓑ
+syntax match hsNiceOperator "=<<"        conceal cchar=ⓓ
 syntax match hsNiceOperator "<$>"        conceal cchar=ⓜ
 syntax match hsNiceOperator "`fmap`"     conceal cchar=ⓜ
 
