@@ -44,7 +44,7 @@ syntax match hsNiceOperator "\<sqrt\>" conceal cchar=√
 syntax match hsNiceOperator "\<pi\>" conceal cchar=π
 syntax match hsNiceOperator "\<tau\>" conceal cchar=τ
 syntax match hsNiceOperator "==" conceal cchar=≡
-syntax match hsNiceOperator "\/=" conceal cchar=≠
+syntax match hsNiceOperator "\/=" conceal cchar=≢
 syntax match hsNiceOperator ">>" conceal cchar=»
 syntax match hsNiceOperator "<<" conceal cchar=«
 
