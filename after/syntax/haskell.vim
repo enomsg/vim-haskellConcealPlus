@@ -95,6 +95,8 @@ if s:extraConceal
 
     syntax match hsQQEnd "|\]" contained conceal cchar=〛
     " sy match hsQQEnd "|\]" contained conceal=〚
+    " syntax match hsNiceOperator "*" conceal cchar=⋅
+    syntax match hsNiceOperator "*" conceal cchar=×
 
     syntax match hsNiceOperator "`elem`" conceal cchar=∈
     syntax match hsNiceOperator "`notElem`" conceal cchar=∉
