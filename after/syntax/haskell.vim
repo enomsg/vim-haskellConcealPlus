@@ -124,3 +124,32 @@ hi link hsNiceOperator Operator
 hi! link Conceal Operator
 setlocal conceallevel=2
 
+" Informal but still useful notation down below.
+if !exists('g:informal_haskell_conceal')
+	finish
+endif
+
+" m - map
+syntax match hsNiceOperator "<$>"        conceal cchar=ⓜ
+syntax match hsNiceOperator "`fmap`"     conceal cchar=ⓜ
+
+" ∵ means "because/since/due to." With quite a stretch this can be used
+" for 'where'. We preserve spacing, otherwise it breaks indenting in a
+" major way.
+syntax match WS contained "w" conceal cchar=∵
+syntax match HS contained "h" conceal cchar= 
+syntax match ES contained "e" conceal cchar= 
+syntax match RS contained "r" conceal cchar= 
+syntax match hsNiceOperator "\<where\>" contains=WS,HS,ES,RS,ES
+
+" Minus is a special syntax construct in Haskell. We use squared minus to
+" tell the syntax from the binary function.
+syntax match hsNiceOperator "(-)"        conceal cchar=⊟
+syntax match hsNiceOperator "`subtract`" conceal cchar=⊟
+
+" Not an official notation ttbomk. But at least
+" http://www.haskell.org/haskellwiki/Unicode-symbols mentions it.
+syntax match hsNiceOperator "\<Bool\>"   conceal cchar=𝔹
+
+" '+i' blended. x⨢y == x + iy == x:+y
+syntax match hsNiceOperator ":+"         conceal cchar=⨢
