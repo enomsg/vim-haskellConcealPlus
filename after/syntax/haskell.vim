@@ -107,6 +107,17 @@ if s:extraConceal
     syntax match hsNiceOperator "||\ze[[:alpha:][:space:]_([]" conceal cchar=∨
     syntax match hsNiceOperator "&&\ze[[:alpha:][:space:]_([]" conceal cchar=∧
     syntax match hsNiceOperator "\<not\>" conceal cchar=¬
+
+    syntax match hsNiceOperator "\<Rational\>" conceal cchar=ℚ
+    syntax match hsNiceOperator "\<Integer\>"  conceal cchar=ℤ
+
+    syntax match hsNiceOperator "<\*>"      conceal cchar=⊛
+    syntax match hsNiceOperator "`mappend`" conceal cchar=⊕
+    syntax match hsNiceOperator "<>"        conceal cchar=⊕
+    syntax match hsNiceOperator "\<empty\>" conceal cchar=∅
+
+    syntax match hsNiceOperator "\<return\>" conceal cchar=η
+    syntax match hsNiceOperator "\<join\>"   conceal cchar=µ
 endif
 
 hi link hsNiceOperator Operator
