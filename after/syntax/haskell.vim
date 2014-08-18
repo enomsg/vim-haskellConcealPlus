@@ -43,8 +43,6 @@ endif
 
 " vim: set fenc=utf-8:
 syntax match hsNiceOperator "\\\ze[[:alpha:][:space:]_([]" conceal cchar=λ
-syntax match hsNiceOperator "<-" conceal cchar=←
-syntax match hsNiceOperator "->" conceal cchar=→
 syntax match hsNiceOperator "\<pi\>" conceal cchar=π
 syntax match hsNiceOperator "\<tau\>" conceal cchar=τ
 syntax match hsNiceOperator "==" conceal cchar=≡
@@ -74,11 +72,8 @@ if s:extraConceal
     syntax match hsNiceOperator "<=\ze[^<]" conceal cchar=≤
     syntax match hsNiceOperator ">=\ze[^>]" conceal cchar=≥
 
-    syntax match hsNiceOperator "=>" conceal cchar=⇒
-
     " Redfining to get proper '::' concealing
     syntax match hs_DeclareFunction /^[a-z_(]\S*\(\s\|\n\)*::/me=e-2 nextgroup=hsNiceOperator contains=hs_FunctionName,hs_OpFunctionName
-    syntax match hsNiceOperator "\:\:" conceal cchar=∷
 
     syntax match hsNiceoperator "!!" conceal cchar=‼
     syntax match hsNiceoperator "++" conceal cchar=⧺
@@ -118,6 +113,26 @@ endif
 hi link hsNiceOperator Operator
 hi! link Conceal Operator
 setlocal conceallevel=2
+
+" 'A' option to not try to preserve indentation.
+if Cf('A')
+    syntax match hsNiceOperator "<-" conceal cchar=←
+    syntax match hsNiceOperator "->" conceal cchar=→
+    syntax match hsNiceOperator "=>" conceal cchar=⇒
+    syntax match hsNiceOperator "\:\:" conceal cchar=∷
+else
+    syntax match hsLRArrowHead contained ">" conceal cchar= 
+    syntax match hsLRArrowTail contained "-" conceal cchar=→
+    syntax match hsLRArrowFull "->" contains=hsLRArrowHead,hsLRArrowTail
+
+    syntax match hsRLArrowHead contained "<" conceal cchar=←
+    syntax match hsRLArrowTail contained "-" conceal cchar= 
+    syntax match hsRLArrowFull "<-" contains=hsRLArrowHead,hsRLArrowTail
+
+    syntax match hsLRDArrowHead contained ">" conceal cchar= 
+    syntax match hsLRDArrowTail contained "=" conceal cchar=⇒
+    syntax match hsLRDArrowFull "=>" contains=hsLRDArrowHead,hsLRDArrowTail
+endif
 
 " 's' option to disable space consumption after ∑,∏,√ and ¬ functions.
 if Cf('s')

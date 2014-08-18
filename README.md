@@ -42,6 +42,7 @@ should), put it in *~/.vim/bundle/haskellConcealPlus* folder.
 
 ### Available Options
 
+    'A' option to not try to preserve indentation.
     's' option to disable space consumption after ∑,∏,√ and ¬ functions.
     '*' option to enable concealing of asterisk with '⋅' sign.
     'x' option to disable default concealing of asterisk with '×' sign.
@@ -70,15 +71,21 @@ hscoptions="fc"* in your *~/.vimrc*.
 
 ### Known Issues and Hints:
 
-- *let concealcursor=nciv* seem to not play well with Vim matchparen
+- Concealing may seriously mess up indentation. By default the bundle
+  tries to preserve spaces for commonly troublesome symbols (e.g. ->, <-
+  and => arrows). But to be sure about indentation, you still have to see
+  the non-concealed code. *set conceallevel=0* might be handy in these
+  cases.
+
+- *set concealcursor=nciv* seem to not play well with Vim matchparen
   feature (which is enabled by default). You can either disable concealing
   under the cursor, or disable matchparen by adding *let
   loaded_matchparen=1* at the very top of your *~/.vimrc*.
 
-- With *let concealcursor=nciv* navigation through concealed parts of code
+- With *set concealcursor=nciv* navigation through concealed parts of code
   might be somewhat irritating because the cursor behaves a bit
   differently. It becomes less of an issue if you are used to Vim's *w/b*
-  commands (word forward/backward). You can also try *let
+  commands (word forward/backward). You can also try *set
   concealcursor=ncv* instead.
 
 - Finding proper fonts might be a pain. Most of modern, so called
