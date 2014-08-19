@@ -44,7 +44,7 @@ endif
 " vim: set fenc=utf-8:
 syntax match hsNiceOperator "\\\ze[[:alpha:][:space:]_([]" conceal cchar=λ
 
-" 'q' option to disable concealing of scientific constants.
+" 'q' option to disable concealing of scientific constants (e.g. π).
 if !Cf('q')
     syntax match hsNiceOperator "\<pi\>" conceal cchar=π
     syntax match hsNiceOperator "\<tau\>" conceal cchar=τ

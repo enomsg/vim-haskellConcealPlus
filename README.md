@@ -42,6 +42,7 @@ should), put it in *~/.vim/bundle/haskellConcealPlus* folder.
 
 ### Available Options
 
+    'q' option to disable concealing of scientific constants (e.g. π).
     'A' option to not try to preserve indentation.
     's' option to disable space consumption after ∑,∏,√ and ¬ functions.
     '*' option to enable concealing of asterisk with '⋅' sign.
