@@ -108,9 +108,6 @@ if s:extraConceal
     syntax match hsNiceOperator "||\ze[[:alpha:][:space:]_([]" conceal cchar=∨
     syntax match hsNiceOperator "&&\ze[[:alpha:][:space:]_([]" conceal cchar=∧
 
-    syntax match hsNiceOperator "\<Rational\>" conceal cchar=ℚ
-    syntax match hsNiceOperator "\<Integer\>"  conceal cchar=ℤ
-
     syntax match hsNiceOperator "<\*>"      conceal cchar=⊛
     syntax match hsNiceOperator "`mappend`" conceal cchar=⊕
     syntax match hsNiceOperator "<>"        conceal cchar=⊕
@@ -268,6 +265,16 @@ if !Cf('B')
     " Not an official notation ttbomk. But at least
     " http://www.haskell.org/haskellwiki/Unicode-symbols mentions it.
     syntax match hsNiceOperator "\<Bool\>" conceal cchar=𝔹
+endif
+
+" 'Q' option to disable Rational type to ℚ concealing.
+if !Cf('Q')
+    syntax match hsNiceOperator "\<Rational\>" conceal cchar=ℚ
+endif
+
+" 'Z' option to disable Integer type to ℤ concealing.
+if !Cf('Z')
+    syntax match hsNiceOperator "\<Integer\>"  conceal cchar=ℤ
 endif
 
 " '1' option to disable numeric superscripts concealing, e.g. x².
