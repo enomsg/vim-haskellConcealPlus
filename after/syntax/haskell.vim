@@ -33,7 +33,7 @@
 "
 
 " Cf - check a flag. Return true if the flag is specified.
-function Cf(flag)
+function! Cf(flag)
     return exists('g:hscoptions') && stridx(g:hscoptions, a:flag) >= 0
 endfunction
 
