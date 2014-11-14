@@ -194,13 +194,13 @@ elseif Cf('h')
     syntax match hsNiceOperator "=\zs<<" conceal cchar=«
 " Left and right arrows with hooks are the default option for binds.
 else
-    syntax match hsNiceOperator ">>="    conceal cchar=↪
-    syntax match hsNiceOperator "=<<"    conceal cchar=↩
+    syntax match hsNiceOperator ">>=\ze\_[[:alpha:][:space:]_()[\]]" conceal cchar=↪
+    syntax match hsNiceOperator "=<<\ze\_[[:alpha:][:space:]_()[\]]" conceal cchar=↩
 endif
 
 if !Cf('h')
-    syntax match hsNiceOperator "\zs>>\ze\_[^=]" conceal cchar=»
-    syntax match hsNiceOperator "[^=]*\zs<<\ze"  conceal cchar=«
+    syntax match hsNiceOperator ">>\ze\_[[:alpha:][:space:]_()[\]]" conceal cchar=»
+    syntax match hsNiceOperator "<<\ze\_[[:alpha:][:space:]_()[\]]" conceal cchar=«
 endif
 
 " 'C' option to enable encircled 'm' letter ⓜ concealing for fmap.
