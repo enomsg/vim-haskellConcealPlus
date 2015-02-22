@@ -43,6 +43,7 @@ should), put it in *~/.vim/bundle/haskellConcealPlus* folder.
 ### Available Options
 
     'q' option to disable concealing of scientific constants (e.g. π).
+    '℘' option to disable concealing of powerset function
     '𝐒' option to disable String type to 𝐒 concealing
     '𝐓' option to disable Text type to 𝐓 concealing
     '𝐄' option to disable Either/Right/Left to 𝐄/𝑅/𝐿 concealing

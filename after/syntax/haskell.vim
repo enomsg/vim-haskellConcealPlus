@@ -120,6 +120,11 @@ hi link hsNiceOperator Operator
 hi! link Conceal Operator
 setlocal conceallevel=2
 
+" '℘' option to disable concealing of powerset function
+if !Cf('℘')
+    syntax match hsNiceOperator "\<powerset\>" conceal cchar=℘
+endif
+
 " '𝐒' option to disable String type to 𝐒 concealing
 if !Cf('𝐒')
     syntax match hsNiceOperator "\<String\>"  conceal cchar=𝐒
