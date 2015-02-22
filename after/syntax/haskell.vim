@@ -100,6 +100,7 @@ if s:extraConceal
 
     syntax match hsNiceOperator "`elem`" conceal cchar=∈
     syntax match hsNiceOperator "`notElem`" conceal cchar=∉
+    syntax match hsNiceOperator "`isSubsetOf`" conceal cchar=⊆
     syntax match hsNiceOperator "`union`" conceal cchar=∪
     syntax match hsNiceOperator "`intersect`" conceal cchar=∩
     syntax match hsNiceOperator "\\\\\ze[[:alpha:][:space:]_([]" conceal cchar=∖
@@ -370,7 +371,6 @@ endif
 " notMember = (∉) = flip (∌)
 " member = (∈) = flip (∋)
 " isProperSubsetOf = (⊂) = flip (⊃)
-" isSubsetOf = (⊆) = flip (⊇)
 "
 " From Data.Sequence.Unicode
 " (<|) = (⊲ )
