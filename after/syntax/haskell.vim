@@ -201,6 +201,11 @@ if !Cf('⇒')
     syntax match hsNiceOperator "`implies`"  conceal cchar=⇒
 endif
 
+" '⇔' option to disable `iff` concealing with ⇔
+if !Cf('⇔')
+    syntax match hsNiceOperator "`iff`" conceal cchar=⇔
+endif
+
 " 'r' option to disable return (η) and join (µ) concealing.
 if !Cf('r')
     syntax match hsNiceOperator "\<return\>" conceal cchar=η

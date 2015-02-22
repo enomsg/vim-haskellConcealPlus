@@ -54,6 +54,7 @@ should), put it in *~/.vim/bundle/haskellConcealPlus* folder.
     'E' option to enable ellipsis concealing with ‥  (two dot leader).
     'e' option to disable ellipsis concealing with … (ellipsis sign).
     '⇒' option to disable `implies` concealing with ⇒
+    '⇔' option to disable `iff` concealing with ⇔
     'r' option to disable return (η) and join (µ) concealing.
     'b' option to disable bind (left and right) concealing
     'f' option to enable formal (★) right bind concealing
