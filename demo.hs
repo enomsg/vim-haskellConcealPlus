@@ -36,6 +36,7 @@ main = do
     print $ [1,2] `union` [3,4] == [-9,-8..4] `intersect` [1,2..9]
     print $ (++"il") <$> (Just "fa" >> guard False >> return undefined)
     print $ realPart(4:+2) == imagPart(2:+4)
+    print $ liftM3 (\x y z -> x+y+z) [1] [2] [39]
     putSL $ "Hask" <> "ell"
   where
     mag a b = sqrt(a^2 + b^2)
