@@ -363,6 +363,14 @@ if !Cf('a')
     syntax match hsNiceOperator "\(\*\*\|\^\|\^\^\)z\ze\_W" conceal cchar=ᶻ
 endif
 
+" Not really Haskell, but quite handy for writing proofs in pseudo-code.
+if Cf('∴')
+    syntax match hsNiceOperator "\<therefore\>" conceal cchar=∴
+    syntax match hsNiceOperator "\<exists\>" conceal cchar=∃
+    syntax match hsNiceOperator "\<notExist\>" conceal cchar=∄
+    syntax match hsNiceOperator ":=" conceal cchar=≝
+endif
+
 " TODO:
 " See Basic Syntax Extensions - School of Haskell | FP Complete
 " intersection = (∩)
