@@ -63,6 +63,7 @@ should), put it in *~/.vim/bundle/haskellConcealPlus* folder.
     'h' option to enable partial concealing of binds (e.g. »=).
     'C' option to enable encircled 'm' letter ⓜ concealing for fmap.
     'l' option to disable fmap/lift concealing with ↥.
+    '↱' option to disable mapM/forM concealing with ↱/↰
     'w' option to disable 'where' concealing with "due to"/∵ symbol.
     '-' option to disable subtract/(-) concealing with ⊟.
     'I' option to enable alternative ':+' concealing with with ⨢.
