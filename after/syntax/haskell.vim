@@ -194,6 +194,13 @@ elseif !Cf('e')
     syntax match hsNiceOperator "\.\." conceal cchar=…
 end
 
+" '⇒' option to disable `implies` concealing with ⇒
+if !Cf('⇒')
+    " Easily distinguishable from => keyword since the keyword can only be
+    " used in type signatures.
+    syntax match hsNiceOperator "`implies`"  conceal cchar=⇒
+endif
+
 " 'r' option to disable return (η) and join (µ) concealing.
 if !Cf('r')
     syntax match hsNiceOperator "\<return\>" conceal cchar=η
