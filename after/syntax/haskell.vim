@@ -314,6 +314,11 @@ if !Cf('Z')
     syntax match hsNiceOperator "\<Integer\>"  conceal cchar=ℤ
 endif
 
+" '𝔻' option to disable Double type to 𝔻 concealing
+if !Cf('𝔻')
+    syntax match hsNiceOperator "\<Double\>"   conceal cchar=𝔻
+endif
+
 " '1' option to disable numeric superscripts concealing, e.g. x².
 if !Cf('1')
     syntax match hsNiceOperator "\(\*\*\|\^\|\^\^\)0\ze\_W" conceal cchar=⁰
