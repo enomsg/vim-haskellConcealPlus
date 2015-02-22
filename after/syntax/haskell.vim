@@ -117,6 +117,30 @@ hi link hsNiceOperator Operator
 hi! link Conceal Operator
 setlocal conceallevel=2
 
+" '𝐒' option to disable String type to 𝐒 concealing
+if !Cf('𝐒')
+    syntax match hsNiceOperator "\<String\>"  conceal cchar=𝐒
+endif
+
+" '𝐓' option to disable Text type to 𝐓 concealing
+if !Cf('𝐓')
+    syntax match hsNiceOperator "\<Text\>"    conceal cchar=𝐓
+endif
+
+" '𝐄' option to disable Either/Right/Left to 𝐄/𝑅/𝐿 concealing
+if !Cf('𝐄')
+    syntax match hsNiceOperator "\<Either\>"  conceal cchar=𝐄
+    syntax match hsNiceOperator "\<Right\>"   conceal cchar=𝑅
+    syntax match hsNiceOperator "\<Left\>"    conceal cchar=𝐿
+endif
+
+" '𝐌' option to disable Maybe/Just/Nothing to 𝐌/𝐽/𝑁 concealing
+if !Cf('𝐌')
+    syntax match hsNiceOperator "\<Maybe\>"   conceal cchar=𝐌
+    syntax match hsNiceOperator "\<Just\>"    conceal cchar=𝐽
+    syntax match hsNiceOperator "\<Nothing\>" conceal cchar=𝑁
+endif
+
 " 'A' option to not try to preserve indentation.
 if Cf('A')
     syntax match hsNiceOperator "<-" conceal cchar=←

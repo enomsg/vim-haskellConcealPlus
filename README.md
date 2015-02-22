@@ -43,6 +43,10 @@ should), put it in *~/.vim/bundle/haskellConcealPlus* folder.
 ### Available Options
 
     'q' option to disable concealing of scientific constants (e.g. π).
+    '𝐒' option to disable String type to 𝐒 concealing
+    '𝐓' option to disable Text type to 𝐓 concealing
+    '𝐄' option to disable Either/Right/Left to 𝐄/𝑅/𝐿 concealing
+    '𝐌' option to disable Maybe/Just/Nothing to 𝐌/𝐽/𝑁 concealing
     'A' option to not try to preserve indentation.
     's' option to disable space consumption after ∑,∏,√ and ¬ functions.
     '*' option to enable concealing of asterisk with '⋅' sign.
