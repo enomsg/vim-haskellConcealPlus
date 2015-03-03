@@ -40,46 +40,116 @@ GitHub: https://github.com/enomsg/vim-haskellConcealPlus
 Decompress in your *~/vimfiles* or *~/.vim*, if you're using pathogen (you
 should), put it in *~/.vim/bundle/haskellConcealPlus* folder.
 
-### Available Options
+### How to use it
+Very easy! Just define a global variable with the configuration. Possible keys
+are 'operator', 'identifier' and 'pattern'. Also, set the `conceallevel` and 
+`concealcursor` options accordingly.
 
-    'q' option to disable concealing of scientific constants (e.g. π).
-    '℘' option to disable concealing of powerset function
-    '𝐒' option to disable String type to 𝐒 concealing
-    '𝐓' option to disable Text type to 𝐓 concealing
-    '𝐄' option to disable Either/Right/Left to 𝐄/𝑅/𝐿 concealing
-    '𝐌' option to disable Maybe/Just/Nothing to 𝐌/𝐽/𝑁 concealing
-    'A' option to not try to preserve indentation.
-    's' option to disable space consumption after ∑,∏,√ and ¬ functions.
-    '*' option to enable concealing of asterisk with '⋅' sign.
-    'x' option to disable default concealing of asterisk with '×' sign.
-    'E' option to enable ellipsis concealing with ‥  (two dot leader).
-    'e' option to disable ellipsis concealing with … (ellipsis sign).
-    '⇒' option to disable `implies` concealing with ⇒
-    '⇔' option to disable `iff` concealing with ⇔
-    'r' option to disable return (η) and join (µ) concealing.
-    'b' option to disable bind (left and right) concealing
-    'f' option to enable formal (★) right bind concealing
-    'c' option to enable encircled b/d (ⓑ/ⓓ) for right and left binds.
-    'h' option to enable partial concealing of binds (e.g. »=).
-    'C' option to enable encircled 'm' letter ⓜ concealing for fmap.
-    'l' option to disable fmap/lift concealing with ↥.
-    '↱' option to disable mapM/forM concealing with ↱/↰
-    'w' option to disable 'where' concealing with "due to"/∵ symbol.
-    '-' option to disable subtract/(-) concealing with ⊟.
-    'I' option to enable alternative ':+' concealing with with ⨢.
-    'i' option to disable default concealing of ':+' with ⅈ.
-    'R' option to disable realPart/imagPart concealing with ℜ/ℑ.
-    'T' option to enable True/False constants concealing with bold 𝐓/𝐅.
-    't' option to disable True/False constants concealing with italic 𝑇/𝐹.
-    'B' option to disable Bool type to 𝔹 concealing
-    'Q' option to disable Rational type to ℚ concealing.
-    'Z' option to disable Integer type to ℤ concealing.
-    '𝔻' option to disable Double type to 𝔻 concealing
-    '1' option to disable numeric superscripts concealing, e.g. x².
-    'a' option to disable alphabet superscripts concealing, e.g. xⁿ.
-
-The flags can be specified via hscoptions variable. For example, *let
-hscoptions="fc"* in your *~/.vimrc*.
+```
+let g:haskell_conceal_definitions = {
+\ 'operators': [
+\ 	[['*'], ['×']],
+\ 	[['.'], ['∘']],
+\ 	[['::'], ['∷']],
+\ 	[['=='], ['≡']],
+\ 	[['/='], ['≢']],
+\ 	[['<='], ['≤']],
+\ 	[['>='], ['≥']],
+\ 	[['!!'], ['‼']],
+\ 	[['++'], ['⧺']],
+\ 	[['||'], ['∨']],
+\ 	[['&&'], ['∧']],
+\ 	[['<>'], ['⊕']],
+\ 	[[',+'], ['ⅈ']],
+\ 	[['>>'], ['»']],
+\ 	[['<<'], ['«']],
+\ 	[['-<'], ['⤙']],
+\ 	[['>-'], ['⤚']],
+\ 	[['<|'], ['⊲']],
+\ 	[['|>'], ['⊳']],
+\ 	[['><'], ['⋈']],
+\ 	[['-', '>'], ['→', ' ']],
+\ 	[['<', '-'], ['←', ' ']],
+\ 	[['=', '>'], ['⇒', ' ']],
+\ 	[['***'], ['⁂']],
+\ 	[['+++'], ['⧻']],
+\ 	[['<$', '>'], ['F', '↥']],
+\ 	[['<*>'], ['⊛']],
+\ 	[['-', '<<'], ['—', '«']],
+\ 	[['>>', '-'], ['»', '—']],
+\ 	[['=', '<<'], ['=', '«']],
+\ 	[['>>', '='], ['»', '=']],
+\ 	[['>>', '>'], ['⋙', ' ']],
+\ 	[['<', '<<'], ['⋘', ' ']],
+\ ],
+\ 'identifiers': [
+\ 	[['False'], ['𝐅']],
+\ 	[['True'], ['𝐓']],
+\ 	[['String'], ['𝐒']],
+\ 	[['Text'], ['𝐓']],
+\ 	[['Either'], ['𝐄']],
+\ 	[['Right'], ['𝑅']],
+\ 	[['Left'], ['𝐿']],
+\ 	[['Maybe'], ['𝐌']],
+\ 	[['Just'], ['𝐽']],
+\ 	[['Nothin', 'g'], ['𝑁', ' ']],
+\ 	[['Bool'], ['𝔹']],
+\ 	[['Rational'], ['ℚ']],
+\ 	[['Integer'], ['ℤ']],
+\ 	[['Double'], ['𝔻']],
+\ 	[['undefined'], ['⊥']],
+\ 	[['sum'], ['∑']],
+\ 	[['sqrt'], ['√']],
+\ 	[['product'], ['∏']],
+\ 	[['empty'], ['∅']],
+\ 	[['mzero'], ['∅']],
+\ 	[['mempty'], ['∅']],
+\ 	[['powerset'], ['℘']],
+\ 	[['return'], ['η']],
+\ 	[['join'], ['µ']],
+\ 	[['realPart'], ['ℜ']],
+\ 	[['imagPart'], ['ℑ']],
+\ 	[['not'], ['¬']],
+\ 	[['where'], ['∵']],
+\ 	[['forall'], ['∀']],
+\ 	[['exists'], ['∃']],
+\ 	[['notExist'], ['∄']],
+\ 	[['therefore'], ['∴']],
+\ 	[['lift'], ['↥']],
+\ 	[['fma', 'p'], ['F', '↥']],
+\ 	[['lift', 'A'], ['A', '↥']],
+\ 	[['lift', 'A', '2'], ['A', '2', '↥']],
+\ 	[['lift', 'A', '3'], ['A', '3', '↥']],
+\ 	[['lift', 'A', '4'], ['A', '4', '↥']],
+\ 	[['lift', 'A', '5'], ['A', '5', '↥']],
+\ 	[['lift', 'M'], ['M', '↥']],
+\ 	[['lift', 'M', '2'], ['M', '2', '↥']],
+\ 	[['lift', 'M', '3'], ['M', '3', '↥']],
+\ 	[['lift', 'M', '4'], ['M', '4', '↥']],
+\ 	[['lift', 'M', '5'], ['M', '5', '↥']],
+\ 	[['`div`'], ['÷']],
+\ 	[['`mappend`'], ['⊕']],
+\ 	[['`implies', '`'], ['⇒', ' ']],
+\ 	[['`iff', '`'], ['⇔', ' ']],
+\ 	[['pi'], ['π']],
+\ 	[['tau'], ['τ']],
+\ 	[['planckConstant'], ['ℎ']],
+\ 	[['hbar'], ['ℏ']],
+\ 	[['hslash'], ['ℏ']],
+\ 	[['reducedPlanckConstant'], ['ℏ']],
+\ 	[['planckConstantOver2Pi'], ['ℏ']],
+\ 	[['`elem`'], ['∈']],
+\ 	[['`notElem`'], ['∉']],
+\ 	[['`isSubsetOf`'], ['⊆']],
+\ 	[['`isProperSubsetOf`'], ['⊂']],
+\ 	[['`union`'], ['∪']],
+\ 	[['`intersect`'], ['∩']],
+\ ],
+\ 'patterns': [
+\ 	['', ['\'], ['λ'], '\ze\[[:alpha:][:space:]_([]'],
+\ ],
+\ }
+```
 
 ### Known Issues and Hints:
 
