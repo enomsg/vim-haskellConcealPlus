@@ -42,7 +42,8 @@ should), put it in *~/.vim/bundle/haskellConcealPlus* folder.
 
 ### How to use it
 Very easy! Just define a global variable with the configuration. Possible keys
-are 'operator', 'identifier' and 'pattern'.
+are 'operator', 'identifier' and 'pattern'. Also, set the `conceallevel` and 
+`concealcursor` options accordingly.
 
 ```
 let g:haskell_conceal_definitions = {
