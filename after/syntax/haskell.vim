@@ -171,15 +171,15 @@ endif
 
 " 's' option to disable space consumption after ∑,∏,√ and ¬ functions.
 if Cf('s')
-    syntax match hsNiceOperator "\<sum\>"        conceal cchar=∑
-    syntax match hsNiceOperator "\<product\>"    conceal cchar=∏
-    syntax match hsNiceOperator "\<sqrt\>"       conceal cchar=√
-    syntax match hsNiceOperator "\<not\>"        conceal cchar=¬
+    syntax match hsNiceOperator "\<sum\>"                        conceal cchar=∑
+    syntax match hsNiceOperator "\<product\>"                    conceal cchar=∏
+    syntax match hsNiceOperator "\<sqrt\>"                       conceal cchar=√
+    syntax match hsNiceOperator "\<not\>"                        conceal cchar=¬
 else
-    syntax match hsNiceOperator "\<sum\>\s*"     conceal cchar=∑
-    syntax match hsNiceOperator "\<product\>\s*" conceal cchar=∏
-    syntax match hsNiceOperator "\<sqrt\>\s*"    conceal cchar=√
-    syntax match hsNiceOperator "\<not\>\s*"     conceal cchar=¬
+    syntax match hsNiceOperator "\<sum\>\(\ze\s*[.$]\|\s*\)"     conceal cchar=∑
+    syntax match hsNiceOperator "\<product\>\(\ze\s*[.$]\|\s*\)" conceal cchar=∏
+    syntax match hsNiceOperator "\<sqrt\>\(\ze\s*[.$]\|\s*\)"    conceal cchar=√
+    syntax match hsNiceOperator "\<not\>\(\ze\s*[.$]\|\s*\)"     conceal cchar=¬
 endif
 
 " '*' option to enable concealing of asterisk with '⋅' sign.
