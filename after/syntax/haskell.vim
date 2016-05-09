@@ -156,15 +156,15 @@ if Cf('A')
     syntax match hsNiceOperator "=>" conceal cchar=⇒
     syntax match hsNiceOperator "\:\:" conceal cchar=∷
 else
-    syntax match hsLRArrowHead contained ">" conceal cchar= 
+    syntax match hsLRArrowHead contained ">" conceal
     syntax match hsLRArrowTail contained "-" conceal cchar=→
     syntax match hsLRArrowFull "->" contains=hsLRArrowHead,hsLRArrowTail
 
     syntax match hsRLArrowHead contained "<" conceal cchar=←
-    syntax match hsRLArrowTail contained "-" conceal cchar= 
+    syntax match hsRLArrowTail contained "-" conceal
     syntax match hsRLArrowFull "<-" contains=hsRLArrowHead,hsRLArrowTail
 
-    syntax match hsLRDArrowHead contained ">" conceal cchar= 
+    syntax match hsLRDArrowHead contained ">" conceal
     syntax match hsLRDArrowTail contained "=" conceal cchar=⇒
     syntax match hsLRDArrowFull "=>" contains=hsLRDArrowHead,hsLRDArrowTail
 endif
@@ -339,9 +339,9 @@ if !Cf('w')
     " used for 'where'. We preserve spacing, otherwise it breaks indenting
     " in a major way.
     syntax match WS contained "w" conceal cchar=∵
-    syntax match HS contained "h" conceal cchar= 
-    syntax match ES contained "e" conceal cchar= 
-    syntax match RS contained "r" conceal cchar= 
+    syntax match HS contained "h" conceal
+    syntax match ES contained "e" conceal
+    syntax match RS contained "r" conceal
     syntax match hsNiceOperator "\<where\>" contains=WS,HS,ES,RS,ES
 endif
 
@@ -395,9 +395,14 @@ if !Cf('Z')
     syntax match hsNiceOperator "\<Integer\>"  conceal cchar=ℤ
 endif
 
-" '𝔻' option to disable Double type to 𝔻 concealing
-if !Cf('𝔻')
+" 'D' option to disable Double type to 𝔻 concealing
+if !Cf('D')
     syntax match hsNiceOperator "\<Double\>"   conceal cchar=𝔻
+endif
+
+" 'C' option to disable Complex type to ℂ concealing
+if !Cf('C')
+    syntax match hasNiceOperator "\<Complex\>" conceal cchar=ℂ
 endif
 
 " '1' option to disable numeric superscripts concealing, e.g. x².
