@@ -156,15 +156,15 @@ if Cf('A')
     syntax match hsNiceOperator "=>" conceal cchar=⇒
     syntax match hsNiceOperator "\:\:" conceal cchar=∷
 else
-    syntax match hsLRArrowHead contained ">" conceal
+    syntax match hsLRArrowHead contained ">" conceal cchar= 
     syntax match hsLRArrowTail contained "-" conceal cchar=→
     syntax match hsLRArrowFull "->" contains=hsLRArrowHead,hsLRArrowTail
 
     syntax match hsRLArrowHead contained "<" conceal cchar=←
-    syntax match hsRLArrowTail contained "-" conceal
+    syntax match hsRLArrowTail contained "-" conceal cchar= 
     syntax match hsRLArrowFull "<-" contains=hsRLArrowHead,hsRLArrowTail
 
-    syntax match hsLRDArrowHead contained ">" conceal
+    syntax match hsLRDArrowHead contained ">" conceal cchar= 
     syntax match hsLRDArrowTail contained "=" conceal cchar=⇒
     syntax match hsLRDArrowFull "=>" contains=hsLRDArrowHead,hsLRDArrowTail
 endif
@@ -339,9 +339,9 @@ if !Cf('w')
     " used for 'where'. We preserve spacing, otherwise it breaks indenting
     " in a major way.
     syntax match WS contained "w" conceal cchar=∵
-    syntax match HS contained "h" conceal
-    syntax match ES contained "e" conceal
-    syntax match RS contained "r" conceal
+    syntax match HS contained "h" conceal cchar= 
+    syntax match ES contained "e" conceal cchar= 
+    syntax match RS contained "r" conceal cchar= 
     syntax match hsNiceOperator "\<where\>" contains=WS,HS,ES,RS,ES
 endif
 
