@@ -316,7 +316,8 @@ if !Cf('↱')
     syntax match hsNiceOperator "`mapM_`"      contains=MAPMQ,MAPMmQ,MAPMa,MAPMp,MAPMM,MAPMU
     syntax match hsNiceOperator "`mapM`"       contains=MAPMQ,MAPMmQ,MAPMa,MAPMp,MAPMM
     syntax match hsNiceOperator "\<mapM\>\s*"  contains=MAPMm,MAPMa,MAPMp,MAPMM,SPC
-    syntax match hsNiceOperator "\<mapM_\>\s*" contains=MAPMm,MAPMa,MAPMp,MAPMM,MAPMU,SPC
+    "syntax match hsNiceOperator "\<mapM_\>\s*" contains=MAPMm,MAPMa,MAPMp,MAPMM,MAPMU,SPC
+    syntax match hsNiceOperator "\<mapM_\>\s*" contains=MAPMm,MAPMa,MAPMp,MAPMM,MAPMU
 
     syntax match FORMQ  contained "`" conceal
     syntax match FORMfQ contained "f" conceal cchar=↱
@@ -359,7 +360,11 @@ if Cf('I')
     syntax match hsNiceOperator ":+"         conceal cchar=⨢
 " 'i' option to disable default concealing of ':+' with ⅈ.
 elseif !Cf('i')
-    syntax match hsNiceOperator ":+"         conceal cchar=ⅈ
+    syntax match COLON contained ":" conceal cchar=+
+    syntax match PLUS  contained "+" conceal cchar= 
+    syntax match SPACE contained " " conceal cchar=ⅈ
+    syntax match hsNiceOperator ":+ " contains=COLON,PLUS,SPACE
+    "syntax match hsNiceOperator ":+"         conceal cchar=ⅈ
 endif
 
 " 'R' option to disable realPart/imagPart concealing with ℜ/ℑ.
