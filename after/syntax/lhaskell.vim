@@ -114,6 +114,7 @@ if s:extraConceal
 
     syntax match hsNiceOperator "<\*>"      conceal cchar=⊛ contained
     syntax match hsNiceOperator "`mappend`" conceal cchar=⊕ contained
+    syntax match hsNiceOperator "\<mappend\>" conceal cchar=⊕
     syntax match hsNiceOperator "<>"        conceal cchar=⊕ contained
     syntax match hsNiceOperator "\<empty\>" conceal cchar=∅ contained
     syntax match hsNiceOperator "\<mzero\>" conceal cchar=∅ contained
