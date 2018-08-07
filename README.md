@@ -74,6 +74,7 @@ should), put it in *~/.vim/bundle/haskellConcealPlus* folder.
     'B' option to disable Bool type to 𝔹 concealing
     'Q' option to disable Rational type to ℚ concealing
     'Z' option to disable Integer type to ℤ concealing
+    'N' option to disable Natural, Nat types to ℕ concealing
     'D' option to disable Double type to 𝔻 concealing
     'C' option to disable Complex type to ℂ concealing
     '1' option to disable numeric superscripts concealing, e.g. x²

@@ -399,6 +399,12 @@ if !Cf('Z')
     syntax match hsNiceOperator "\<Integer\>"  conceal cchar=ℤ
 endif
 
+" 'N' option to disable Natural, Nat types to ℕ concealing.
+if !Cf('N')
+    syntax match hsNiceOperator "\<Natural\>"  conceal cchar=ℕ
+    syntax match hsNiceOperator "\<Nat\>"  conceal cchar=ℕ
+endif
+
 " 'D' option to disable Double type to 𝔻 concealing
 if !Cf('D')
     syntax match hsNiceOperator "\<Double\>"   conceal cchar=𝔻
