@@ -5,9 +5,11 @@ is used to display unicode operators in Haskell code without changing the
 underlying file.
 
 This package offers more (and, more importantly, configurable) features
-than the baseline vim-haskellConceal bundle. The baseline bundle has
-numerous forks, which is possible to combine, so everyone is welcome to
-share, improve or contribute new notations to this Conceal Plus package.
+than the
+[baseline vim-haskellConcealbundle](https://github.com/Twinside/vim-haskellConceal).
+The baseline bundle has numerous forks, which is possible to combine, so
+everyone is welcome to share, improve or contribute new notations to this
+Conceal Plus package.
 
 GitHub: https://github.com/enomsg/vim-haskellConcealPlus
 
