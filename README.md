@@ -108,10 +108,32 @@ hscoptions="fc"* in your *~/.vimrc*.
   programming fonts (*Inconsolata*, *Anonymous Pro*, etc.) often lack
   decent unicode support. As a recommendation, try *DejaVu Sans Mono*.
 
-- Ditto for terminal emulators: sadly, most of them have one or more
-  issues with regard to the unicode characters handling. Those terminals
-  that don't have problems with unicode might be pretty slow. As a
-  recommendation, you can try *evilvte* (it has weird configuration, but
-  draws things correctly) or *lxterminal* (seems to be quite capable, but
-  limited configurability) or any other terminal emulator that happened to
-  work for you.
+  **Update**: thanks to [monospacifier](https://github.com/cpitclaudel/monospacifier)
+  package, fonts are no longer a problem. Pick your favourite font, then in
+  addition download one of the "monospacified" fallback fonts, save into
+  `~/.fonts`, and adjust fontconfig, e.g.
+  `~/.config/fontconfig/fonts.conf`:
+
+  ```
+	<?xml version="1.0"?><!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+	<fontconfig>
+	<dir>~/.fonts</dir>
+	<alias>
+		<family>monospace</family>
+		<prefer>
+			<family>TeX Gyre Schola Math monospacified for DejaVu Sans Mono</family>
+		</prefer>
+	</alias>
+	</fontconfig>
+  ```
+
+- Most of the terminal emulators have one or more issues with regard to the
+  unicode characters handling. Emulators that don't have problems with unicode
+  might be pretty slow. As a recommendation, try xst, or *evilvte* (it has weird
+  configuration, but draws things correctly) or *lxterminal* (seems to be quite
+  capable, but limited configurability) or any other terminal emulator that
+  happened to work for you.
+
+  [xst](https://github.com/gnotclub/xst) is known to work well with DejaVu Sans
+  Mono, plus [monospacified](https://github.com/cpitclaudel/monospacifier) fonts
+  as a fallback.
