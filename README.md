@@ -39,8 +39,16 @@ GitHub: https://github.com/enomsg/vim-haskellConcealPlus
 
 ### Installation
 
-Decompress in your *~/vimfiles* or *~/.vim*, if you're using pathogen (you
-should), put it in *~/.vim/bundle/haskellConcealPlus* folder.
+Using Vim built-in `pack` support:
+
+```
+$ mkdir -p ~/.vim/pack/vim-haskellConcealPlus/start
+$ cd ~/.vim/pack/vim-haskellConcealPlus/start
+$ git clone https://github.com/enomsg/vim-haskellConcealPlus
+$ echo "syn on" >> ~/.vimrc # If not already in .vimrc
+$ echo "setlocal conceallevel=2" >> ~/.vimrc # If not already in .vimrc
+$ echo "set concealcursor=nciv" >> ~/.vimrc # Optional
+```
 
 ### Available Options
 
